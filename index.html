@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        #table-container {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        table {width:50%}
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+
+<div id="table-container">
+    <h2>HTML Table Filter</h2>
+    <h4>Table example from w3schools.com</h4>
+
+    <input type="text" placeholder="filter">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+
+<script src="lib-tablefilter.js" ></script>
+
+<script>
+    const table = document.querySelector("#table-container table")
+    const filter = document.querySelector("#table-container input")
+    const tf = new TableFilter(table, filter)
+</script>
+
+</html>
