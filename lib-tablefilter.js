@@ -29,12 +29,18 @@ class TableFilter {
         this.tableElem = tableElem
         this.inputElem = inputElem
         this.counterDisplayElem = counterDisplayElem
-        this.sessionStoreKey = "tf_filter_term"
+        this.sessionStoreKey = `${window.encodeURIComponent(window.location.href)}.tf_filter_term`
 
         const prev_filter = sessionStorage.getItem(this.sessionStoreKey)
         if (prev_filter)
             this.inputElem.value = prev_filter
         this.inputElem.addEventListener("input", e=>this.filter())
+        this.inputElem.addEventListener("keydown", e=>{
+            if(e.key=='Escape'|| e.key=='Esc') {
+                this.inputElem.value = ""
+                this.filter()
+            }
+        })
         this.inputElem.focus()
         this.filter()
     }

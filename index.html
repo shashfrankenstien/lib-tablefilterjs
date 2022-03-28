@@ -12,10 +12,15 @@
         #table-container {
             display: flex;
             flex-direction: column;
-            /* justify-content: center; */
             align-items: center;
         }
-        table {width:50%}
+        input {
+            margin-bottom:20px
+        }
+        table {
+            width:50%;
+            margin-top:20px
+        }
         table, td {
             border: 1px solid black;
         }
@@ -26,6 +31,8 @@
     <h4>Table example from w3schools.com</h4>
 
     <input type="text" placeholder="filter">
+
+    <span id="filter-status"></span>
 
     <table>
         <thead>
@@ -78,7 +85,8 @@
 <script>
     const table = document.querySelector("#table-container table")
     const filter = document.querySelector("#table-container input")
-    const tf = new TableFilter(table, filter)
+    const filter_status = document.querySelector("#filter-status")
+    const tf = new TableFilter(table, filter, filter_status) // filter_status is optional
 </script>
 
 </html>
