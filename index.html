@@ -87,8 +87,9 @@
     const filter = document.querySelector("#table-container input")
     const filter_status = document.querySelector("#filter-status")
     options = {
-        persist: false,      // 'true' is the default
-        focus: true         // 'true' is the default
+        persist: false,                     // 'true' is the default
+        focus: true,                        // 'true' is the default
+        input_active_bg: "yellow"           // background color of input element when a filter is active
     }
     const tf = new TableFilter(table, filter, filter_status, options) // filter_status and options are optional
 </script>

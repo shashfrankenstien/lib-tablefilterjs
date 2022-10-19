@@ -50,6 +50,9 @@ class TableFilter {
         this.options.focus = this.options.focus !== false // means true by default
         if (this.options.focus)
             this.inputElem.focus()
+
+        this.orig_bg = this.inputElem.style.backgroundColor
+        this.options.input_active_bg = this.options.input_active_bg || this.orig_bg
         this.filter()
     }
 
@@ -145,10 +148,14 @@ class TableFilter {
         }
 
         if (this.counterDisplayElem) {
-            if (visible === total)
+            if (visible === total) {
                 this.counterDisplayElem.innerText = `all ${total}`
-            else
+                this.inputElem.style.backgroundColor = this.orig_bg
+            }
+            else {
                 this.counterDisplayElem.innerText = `${visible} / ${total}`
+                this.inputElem.style.backgroundColor = this.options.input_active_bg
+            }
         }
     }
 }
