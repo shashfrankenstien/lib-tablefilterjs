@@ -6,7 +6,7 @@ Use this repository as cdn
 <script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs/lib-tablefilter.js"></script>
 ```
 ```html
-<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.2/lib-tablefilter.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.3/lib-tablefilter.js"></script>
 ```
 
 Try the minified version
@@ -14,7 +14,7 @@ Try the minified version
 <script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs/lib-tablefilter.min.js"></script>
 ```
 ```html
-<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.2/lib-tablefilter.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.3/lib-tablefilter.min.js"></script>
 ```
 
 # Usage
@@ -40,7 +40,11 @@ Try the minified version
     const table = document.querySelector("#table-container table")
     const filter = document.querySelector("#table-container input")
     const filter_status = document.querySelector("#table-container span")
-    const tf = new TableFilter(table, filter, filter_status) // filter_status is optional
+    options = {
+        persist: true,      // 'true' is the default
+        focus: true         // 'true' is the default
+    }
+    const tf = new TableFilter(table, filter, filter_status, options) // filter_status and options are optional
 </script>
 
 ```

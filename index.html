@@ -86,7 +86,11 @@
     const table = document.querySelector("#table-container table")
     const filter = document.querySelector("#table-container input")
     const filter_status = document.querySelector("#filter-status")
-    const tf = new TableFilter(table, filter, filter_status) // filter_status is optional
+    options = {
+        persist: false,      // 'true' is the default
+        focus: true         // 'true' is the default
+    }
+    const tf = new TableFilter(table, filter, filter_status, options) // filter_status and options are optional
 </script>
 
 </html>

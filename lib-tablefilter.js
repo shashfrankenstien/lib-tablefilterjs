@@ -25,15 +25,20 @@ SOFTWARE.
 
 
 class TableFilter {
-    constructor(tableElem, inputElem, counterDisplayElem) {
+    constructor(tableElem, inputElem, counterDisplayElem, options) {
         this.tableElem = tableElem
         this.inputElem = inputElem
         this.counterDisplayElem = counterDisplayElem
+        this.options = options || {}
         this.sessionStoreKey = `${window.encodeURIComponent(window.location.href)}.tf_filter_term`
 
-        const prev_filter = sessionStorage.getItem(this.sessionStoreKey)
-        if (prev_filter)
-            this.inputElem.value = prev_filter
+        this.options.persist = this.options.persist !== false // means true by default
+        if (this.options.persist) {
+            const prev_filter = sessionStorage.getItem(this.sessionStoreKey)
+            if (prev_filter)
+                this.inputElem.value = prev_filter
+        }
+
         this.inputElem.addEventListener("input", e=>this.filter())
         this.inputElem.addEventListener("keydown", e=>{
             if(e.key=='Escape'|| e.key=='Esc') {
@@ -41,7 +46,10 @@ class TableFilter {
                 this.filter()
             }
         })
-        this.inputElem.focus()
+
+        this.options.focus = this.options.focus !== false // means true by default
+        if (this.options.focus)
+            this.inputElem.focus()
         this.filter()
     }
 
@@ -114,7 +122,9 @@ class TableFilter {
         let total = 0
         let visible = 0
         var filter_term = this.inputElem.value.trim()
-        sessionStorage.setItem(this.sessionStoreKey, filter_term)
+        if (this.options.persist) {
+            sessionStorage.setItem(this.sessionStoreKey, filter_term)
+        }
         // var t = document.getElementById("job-status-table")
         if (filter_term==="") {
             this.tableElem.querySelectorAll("tbody tr").forEach(tr=>{
