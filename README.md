@@ -6,7 +6,7 @@ Use this repository as cdn
 <script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs/lib-tablefilter.js"></script>
 ```
 ```html
-<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.4/lib-tablefilter.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.5/lib-tablefilter.js"></script>
 ```
 
 Try the minified version
@@ -14,7 +14,7 @@ Try the minified version
 <script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs/lib-tablefilter.min.js"></script>
 ```
 ```html
-<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.4/lib-tablefilter.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/shashfrankenstien/lib-tablefilterjs@v0.0.5/lib-tablefilter.min.js"></script>
 ```
 
 # Usage

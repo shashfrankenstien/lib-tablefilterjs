@@ -42,8 +42,7 @@ class TableFilter {
         this.inputElem.addEventListener("input", e=>this.filter())
         this.inputElem.addEventListener("keydown", e=>{
             if(e.key=='Escape'|| e.key=='Esc') {
-                this.inputElem.value = ""
-                this.filter()
+                this.clear()
             }
         })
 
@@ -121,10 +120,15 @@ class TableFilter {
         tr.style.display = ''
     }
 
-    filter() {
+    filter(term) {
         let total = 0
         let visible = 0
-        var filter_term = this.inputElem.value.trim()
+        let filter_term = term
+        if (filter_term) {
+            this.inputElem.value = filter_term
+        } else {
+            filter_term = this.inputElem.value.trim()
+        }
         if (this.options.persist) {
             sessionStorage.setItem(this.sessionStoreKey, filter_term)
         }
@@ -157,5 +161,10 @@ class TableFilter {
                 this.inputElem.style.backgroundColor = this.options.input_active_bg
             }
         }
+    }
+
+    clear() {
+        this.inputElem.value = ""
+        this.filter()
     }
 }
